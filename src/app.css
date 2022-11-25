@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.link {
+  @apply text-indigo-500;
+}
+
+.link:hover {
+  @apply text-indigo-400 underline;
+}
