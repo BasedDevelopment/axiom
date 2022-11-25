@@ -7,3 +7,8 @@ declare namespace App {
 	// interface Error {}
 	// interface Platform {}
 }
+
+declare module "*.json" {
+  const value: Record<unknown, unknown> | unknown[];
+  export default value;
+}
