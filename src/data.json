@@ -1,18 +1,21 @@
-{
-  "luke": [
-    {
-      "id": "fb575668-4056-4833-b605-7acd11947e34",
-      "name": "jupiter",
-      "ip": "134.195.121.106",
-      "box": "box0",
-      "status": "ON"
-    },
-    {
-      "id": "a720cb20-da1a-4ba6-978e-272335211abc",
-      "name": "saturn",
-      "ip": "134.195.126.108",
-      "box": "box0",
-      "status": "OFF"
-    }
-  ]
-}
+[
+  {
+    "name": "box0",
+    "vms": [
+      {
+        "id": "fb575668-4056-4833-b605-7acd11947e34",
+        "name": "jupiter",
+        "ip": "134.195.121.106",
+        "box": "box0",
+        "status": "ON"
+      },
+      {
+        "id": "a720cb20-da1a-4ba6-978e-272335211abc",
+        "name": "saturn",
+        "ip": "134.195.126.108",
+        "box": "box0",
+        "status": "OFF"
+      }
+    ]
+  }
+]

@@ -1,15 +1,12 @@
 <script>
-// @ts-nocheck
-
-  import { luke as servers } from '../data.json';
+  import boxes from '../data.json';
 </script>
 
-<h1 class="text-3xl font-bold underline">
-  {#each servers as server, index }
-    <li>
-      <a href="/{server.id}">
-        {server.name}
-      </a>
-    </li>
-  {/each}
-</h1>
+{#each boxes as box }
+  <p class="font-bold">{box.name}</p>
+  <ul class="list-inside list-disc">
+    {#each box.vms as vm}
+      <li><a class="link" href="/{vm.id}">{vm.name}</a></li>
+    {/each}
+  </ul>
+{/each}
