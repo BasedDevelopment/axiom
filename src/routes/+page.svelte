@@ -2,7 +2,7 @@
   import boxes from '../data.json';
 </script>
 
-{#each boxes as box }
+{#each boxes as box}
   <p class="font-bold">{box.name}</p>
   <ul class="list-inside list-disc">
     {#each box.vms as vm}

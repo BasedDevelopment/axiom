@@ -7,11 +7,11 @@
   import Section from '$lib/components/Section.svelte';
 
   function firstUpperCase(str: string) {
-    const firstLetter = str.charAt(0)
-    const firstLetterCap = firstLetter.toUpperCase()
-    const remainingLetters = str.slice(1)
+    const firstLetter = str.charAt(0);
+    const firstLetterCap = firstLetter.toUpperCase();
+    const remainingLetters = str.slice(1);
 
-    return firstLetterCap + remainingLetters
+    return firstLetterCap + remainingLetters;
   }
 </script>
 
@@ -22,15 +22,15 @@
         <Action href="/" active={false}>Home</Action>
       </Section>
       {#each boxes as box}
-      <Section name={`${box.name} VMs`}>
-        {#each box.vms as server}
-          <Action href="/{server.id}" active={false}>{firstUpperCase(server.name)}</Action>
-          {#if server.name === 'jupiter'}
-            <SubAction href="/{server.id}#console" active={true}>Console</SubAction>
-            <SubAction href="/{server.id}#statistics" active={false}>Statistics</SubAction>
-          {/if}
-        {/each}
-      </Section>
+        <Section name={`${box.name} VMs`}>
+          {#each box.vms as server}
+            <Action href="/{server.id}" active={false}>{firstUpperCase(server.name)}</Action>
+            {#if server.name === 'jupiter'}
+              <SubAction href="/{server.id}#console" active={true}>Console</SubAction>
+              <SubAction href="/{server.id}#statistics" active={false}>Statistics</SubAction>
+            {/if}
+          {/each}
+        </Section>
       {/each}
     </Sidebar>
   </div>
