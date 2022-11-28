@@ -1,8 +1,9 @@
 <script>
-  import boxes from '../data.json';
+  /** @type {import('./$types').PageData} */
+  export let data;
 </script>
 
-{#each boxes as box}
+{#each data.boxes as box}
   <p class="font-bold">{box.name}</p>
   <ul class="list-inside list-disc">
     {#each box.vms as vm}

@@ -11,7 +11,6 @@
   <Server server={data.server} />
   <section class="grid grid-cols-10 gap-3">
     <div class="col-span-2 space-y-3">
-      <Status is={data.server.status} />
       <Button>Start</Button>
       <Button>Reboot</Button>
       <Button>Reset</Button>

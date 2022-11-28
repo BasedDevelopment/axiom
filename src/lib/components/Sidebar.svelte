@@ -1,7 +1,7 @@
-<div class="bg-gray-100 w-full h-full p-4">
+<div class="bg-gray-100 w-full h-full p-4 dark:bg-slate-900 dark:text-white">
   <div class="flex justify-between p-4">
     <span class="text-xl w-6 h-6">
-      <a href="https://as206628.net" rel="noreferrer"> 🦊 </a>
+      <a href="https://as206628.net" rel="noreferrer">🦊</a>
     </span>
     <div class="flex gap-3">
       <svg
