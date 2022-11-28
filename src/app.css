@@ -9,3 +9,7 @@
 .link:hover {
   @apply text-indigo-400 underline;
 }
+
+.display-unset {
+  display: unset;
+}

@@ -24,4 +24,36 @@
   </section>
 </div>
 
-<div id="statistics" class="mt-20">Hello</div>
+<hr class="my-10" />
+
+<div id="statistics" class="grid gap-6 space-y-8 grid-cols-10 grid-rows-5">
+  <div class="col-span-3">
+    <h1 class="font-bold text-2xl mb-3 text-gray-900">Hardware</h1>
+    <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+  </div>
+  <div class="col-span-7">Hello</div>
+
+  <div class="col-span-3">
+    <h1 class="font-bold text-2xl">CPU Usage</h1>
+    <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+  </div>
+  <div class="col-span-7">Hello</div>
+
+  <div class="col-span-3">
+    <h1 class="font-bold text-2xl">Memory Usage</h1>
+    <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+  </div>
+  <div class="col-span-7">Hello</div>
+
+  <div class="col-span-3">
+    <h1 class="font-bold text-2xl">Network Traffic</h1>
+    <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+  </div>
+  <div class="col-span-7">Hello</div>
+
+  <div class="col-span-3">
+    <h1 class="font-bold text-2xl">Disk I/O</h1>
+    <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+  </div>
+  <div class="col-span-7">Hello</div>
+</div>

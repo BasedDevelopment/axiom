@@ -6,11 +6,11 @@ export function load() {
         vms: [
           {
             id: 'fb575668-4056-4833-b605-7acd11947e34',
-            name: 'jupiter',
+            name: 'jupiter'
           },
           {
             id: 'a720cb20-da1a-4ba6-978e-272335211abc',
-            name: 'saturn',
+            name: 'saturn'
           }
         ]
       },
@@ -24,5 +24,5 @@ export function load() {
         ]
       }
     ]
-  }
+  };
 }

@@ -15,7 +15,6 @@
 <section class="flex justify-between p-5 bg-gray-100 rounded-md items-center">
   <div class="space-y-1">
     <p class="text-3xl font-bold tracking-wide">{firstUpperCase(server.name)}</p>
-    <p class="font-mono text-gray-500 text-md">{server.box} / {server.ip}</p>
     <Status is={server.status} />
   </div>
   <div>
