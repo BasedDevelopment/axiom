@@ -19,7 +19,7 @@ export function load() {
         vms: [
           {
             id: '8075de4a-c78b-47ea-8d9b-7d1c74d4f2ff',
-            name: 'testing'
+            name: 'testing (BROKEN)'
           }
         ]
       }
