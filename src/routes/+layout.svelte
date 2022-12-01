@@ -2,12 +2,12 @@
   import '../app.css';
 
   import Section from '$lib/components/sidebar/Section.svelte';
-  import Action from '$lib/components/Action.svelte';
-  import SubAction from '$lib/components/SubAction.svelte';
+  import Action from '$lib/components/sidebar/Action.svelte';
+  import SubAction from '$lib/components/sidebar/SubAction.svelte';
 
   import { page } from '$app/stores';
   import type { PageData } from './$types';
-  import Sidebar from '$lib/components/Sidebar.svelte';
+  import Sidebar from '$lib/components/sidebar/Sidebar.svelte';
 
   function firstUpperCase(str: string) {
     const firstLetter = str.charAt(0);
