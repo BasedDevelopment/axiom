@@ -1,7 +1,7 @@
 <script lang="ts">
   import '../app.css';
 
-  import Section from '$lib/components/Section.svelte';
+  import Section from '$lib/components/sidebar/Section.svelte';
   import Action from '$lib/components/Action.svelte';
   import SubAction from '$lib/components/SubAction.svelte';
 
