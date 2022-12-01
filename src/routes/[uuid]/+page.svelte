@@ -8,14 +8,14 @@
 
 <div class="space-y-5" id="console">
   <Server server={data.server} />
-  <section class="grid grid-cols-10 gap-3">
-    <div class="col-span-2 space-y-3">
+  <section class="flex flex-col md:flex-row gap-3">
+    <div class="w-full md:w-1/3 space-y-3">
       <Button>Start</Button>
       <Button>Reboot</Button>
       <Button>Reset</Button>
       <Button>Hibernate</Button>
     </div>
-    <div class="col-span-8 bg-slate-900 text-white flex flex-col font-mono rounded-md h-96">
+    <div class="w-full bg-slate-900 text-white flex flex-col font-mono rounded-md h-96">
       <div class="bg-slate-800 rounded-t-md px-4 py-2 text-sm text-gray-400 w-full">
         Console
       </div>
