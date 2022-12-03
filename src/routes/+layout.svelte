@@ -11,9 +11,7 @@
   import { firstUpperCase } from '$lib/firstUpperCase';
   import theme from '$lib/shared/stores/theme';
   import type { PageData } from './$types';
-
-  $: activeUrl = $page.url.pathname;
-  $: activeHash = $page.url.hash;
+  import { onMount } from 'svelte';
 
   function isDark() {
     if (import.meta.env.SSR) {
@@ -27,6 +25,14 @@
     currentTheme = isDark() ? 'dark' : '';
   })
 
+  onMount(() => {
+    window.matchMedia('(prefers-color-scheme: dark)').onchange = () => {
+      currentTheme = isDark() ? 'dark' : '';
+    };
+  })
+
+  $: activeUrl = $page.url.pathname;
+  $: activeHash = $page.url.hash;
   $: currentTheme = isDark() ? 'dark' : '';
 
   export let data: PageData;
