@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from '$lib/components/Button.svelte';
+  import Console from '$lib/components/Console.svelte';
   import CircleXIcon from '$lib/components/icons/CircleXIcon.svelte';
   import CycleIcon from '$lib/components/icons/CycleIcon.svelte';
   import PowerIcon from '$lib/components/icons/PowerIcon.svelte';
@@ -34,25 +35,13 @@
         Hibernate
       </Button>
     </div>
-    <div
-      class="w-full bg-slate-900 dark:border-2 dark:border-indigo-500 text-white flex flex-col font-mono rounded-md h-96"
-    >
-      <div class="bg-slate-800 rounded-t-md px-4 py-2 text-sm text-gray-400 w-full">Console</div>
-      <div class="px-4 py-2 flex gap-3 mt-auto text-gray-400">
-        >
-        <input
-          type="text"
-          class="w-full bg-transparent outline-none placeholder:text-sm"
-          placeholder="..."
-        />
-      </div>
-    </div>
+    <Console />
   </section>
 </div>
 
 <hr class="my-10 dark:border-gray-500" />
 
-<div id="statistics" class="space-y-16">
+<div id="statistics" class="space-y-16 mb-12">
   <div class="flex flex-col md:flex-row gap-4">
     <div class="w-2/5">
       <h1 class="font-bold text-2xl mb-3 text-gray-900 dark:text-white">Hardware</h1>
