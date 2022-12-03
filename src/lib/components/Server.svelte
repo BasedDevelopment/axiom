@@ -1,13 +1,6 @@
 <script lang="ts">
   import Status from '$lib/components/Status.svelte';
-
-  function firstUpperCase(str: string) {
-    const firstLetter = str.charAt(0);
-    const firstLetterCap = firstLetter.toUpperCase();
-    const remainingLetters = str.slice(1);
-
-    return firstLetterCap + remainingLetters;
-  }
+  import { firstUpperCase } from '$lib/firstUpperCase';
 
   export let server: Record<string, string>;
 </script>

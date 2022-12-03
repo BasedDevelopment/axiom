@@ -8,14 +8,7 @@
   import { page } from '$app/stores';
   import type { PageData } from './$types';
   import Sidebar from '$lib/components/sidebar/Sidebar.svelte';
-
-  function firstUpperCase(str: string) {
-    const firstLetter = str.charAt(0);
-    const firstLetterCap = firstLetter.toUpperCase();
-    const remainingLetters = str.slice(1);
-
-    return firstLetterCap + remainingLetters;
-  }
+  import { firstUpperCase } from '$lib/firstUpperCase';
 
   function handleClick() {
     document.getElementById('sidebar-container')?.classList.toggle('hidden')
