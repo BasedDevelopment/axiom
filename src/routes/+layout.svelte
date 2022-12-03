@@ -34,7 +34,7 @@
 
 <main class="min-h-screen w-full">
   <!-- navbar -->
-  <header class="flex w-full items-center justify-between bg-gray-800 text-gray-300 p-4">
+  <header class="flex w-full items-center justify-between bg-slate-800 text-gray-300 p-4">
     <!-- logo -->
     <div class="flex items-center space-x-2">
       <button type="button" class="text-3xl" on:click={handleClick}>

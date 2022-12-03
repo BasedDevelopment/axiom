@@ -9,6 +9,10 @@
         class="border-gray-400 hover:border-b"
         rel="noreferrer">Vixen</a
       >
+      and <a
+        href="https://github.com/ericzty/eve"
+        class="border-gray-400 hover:border-b"
+        rel="noreferrer">Eve</a>
     </p>
     <p>&COPY; {new Date().getFullYear()} BNS Services LLC</p>
   </footer>
