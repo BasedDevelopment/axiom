@@ -4,7 +4,6 @@
   import Sidebar from '$lib/components/sidebar/Sidebar.svelte';
   import Section from '$lib/components/sidebar/Section.svelte';
   import Action from '$lib/components/sidebar/Action.svelte';
-  import SubAction from '$lib/components/sidebar/SubAction.svelte';
   import Navbar from '$lib/components/sidebar/Navbar.svelte';
 
   import { page } from '$app/stores';
@@ -18,18 +17,21 @@
       return false;
     }
 
-    return $theme === 'dark' || ($theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    return (
+      $theme === 'dark' ||
+      ($theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    );
   }
 
   theme.subscribe(() => {
     currentTheme = isDark() ? 'dark' : '';
-  })
+  });
 
   onMount(() => {
     window.matchMedia('(prefers-color-scheme: dark)').onchange = () => {
       currentTheme = isDark() ? 'dark' : '';
     };
-  })
+  });
 
   $: activeUrl = $page.url.pathname;
   $: activeHash = $page.url.hash;
@@ -40,7 +42,7 @@
 
 <svelte:head>
   <title>Vixen</title>
-  <meta name="description" content="Web interface for Eve">
+  <meta name="description" content="Web interface for Eve" />
 </svelte:head>
 
 <main class="min-h-screen w-full {currentTheme}">
@@ -57,12 +59,12 @@
             {#each box.vms as server}
               <Action href="/{server.id}" active={false}>{firstUpperCase(server.name)}</Action>
               {#if activeUrl === `/${server.id}`}
-                <SubAction href="/{server.id}" active={activeHash !== '#statistics'}
-                  >Console</SubAction
-                >
-                <SubAction href="/{server.id}#statistics" active={activeHash === '#statistics'}
-                  >Statistics</SubAction
-                >
+                <Action sub href="/{server.id}" active={activeHash !== '#statistics'}>
+                  Console
+                </Action>
+                <Action sub href="/{server.id}#statistics" active={activeHash === '#statistics'}>
+                  Statistics
+                </Action>
               {/if}
             {/each}
           </Section>
@@ -70,7 +72,7 @@
       </Sidebar>
     </div>
 
-    <div class="w-full p-5">
+    <div class="w-full p-5 dark:bg-slate-900 dark:text-white">
       <div class="w-4/5 mx-auto">
         <slot />
       </div>

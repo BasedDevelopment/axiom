@@ -1,7 +1,7 @@
 export function load() {
   return {
     authenticatedUser: {
-      name: 'luke',
+      name: 'luke'
     },
     boxes: [
       {
@@ -12,7 +12,7 @@ export function load() {
             name: 'jupiter',
             ip: '134.195.121.106',
             box: 'box0',
-            status: 'on',
+            status: 'on'
           },
           {
             id: 'a720cb20-da1a-4ba6-978e-272335211abc',

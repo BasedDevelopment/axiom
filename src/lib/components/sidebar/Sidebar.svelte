@@ -1,4 +1,4 @@
-<aside class="flex w-72 flex-col h-full bg-gray-100 p-4 dark:bg-slate-900 dark:text-white">
+<aside class="flex w-72 flex-col h-full bg-gray-100 p-4 dark:bg-slate-800 dark:text-white">
   <nav class="h-max flex-grow my-2">
     <slot />
   </nav>
@@ -9,10 +9,12 @@
         class="border-gray-400 hover:border-b"
         rel="noreferrer">Vixen</a
       >
-      and <a
+      and
+      <a
         href="https://github.com/ericzty/eve"
         class="border-gray-400 hover:border-b"
-        rel="noreferrer">Eve</a>
+        rel="noreferrer">Eve</a
+      >
     </p>
     <p>&COPY; {new Date().getFullYear()} BNS Services LLC</p>
   </footer>
