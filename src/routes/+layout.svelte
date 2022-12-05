@@ -45,10 +45,9 @@
   <meta name="description" content="Web interface for Eve" />
 </svelte:head>
 
-<main class="min-h-screen w-full {currentTheme}">
+<main class="min-h-screen h-screen flex flex-col w-full {currentTheme}">
   <Navbar />
-
-  <div class="flex h-full" style="min-height: 93.3vh;">
+  <div class="flex flex-grow">
     <div id="sidebar-container">
       <Sidebar>
         <Section name="Dashboard">
