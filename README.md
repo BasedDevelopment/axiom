@@ -10,4 +10,4 @@ WIP
 
 ## License
 
-[Mozilla Public License 2.0](LICENSE)
+[Apache License Version 2.0](LICENSE)
