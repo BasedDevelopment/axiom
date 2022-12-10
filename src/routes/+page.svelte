@@ -11,8 +11,9 @@
       Hello, {firstUpperCase(data.authenticatedUser.name)}!
     </h1>
     <p class="mb-6">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam orci ex, scelerisque vel
-      ullamcorper nec, dignissim non tortor. Pellentesque ac ante sed augue tristique venenatis.
+      Hi, welcome to the EricNet Dashboard! Below you can see a list of all the servers you have
+      access to, and their hypervisors. If you click on them you can access power controls, a
+      console, and in-depth statistics.
     </p>
     <div class="space-y-4">
       {#each data.boxes as box}

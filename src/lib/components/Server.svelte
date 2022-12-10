@@ -17,11 +17,11 @@
     <!-- Maybe this should include OS/image? -->
     <div class="flex gap-2">
       <ChipIcon />
-      <span>1.03%</span>
+      <span>{Math.round(Math.random()*100)}.{Math.round(Math.random()*99)}%</span>
     </div>
     <div class="flex gap-2">
       <CloudIcon />
-      <span>2.68/4.00 GiB</span>
+      <span>{Math.round(Math.random()*15)+1}.{Math.round(Math.random()*99)}/16.00 GiB</span>
     </div>
     <div class="flex gap-2">
       <DataIcon />
