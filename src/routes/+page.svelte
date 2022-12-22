@@ -25,7 +25,7 @@
                 class="border-slate-800 dark:border-indigo-500 px-3 py-2 flex flex-col rounded-md border-2"
               >
                 <a class="link text-lg font-bold" href="/{vm.id}">{firstUpperCase(vm.name)}</a>
-                <span class="font-mono text-xs text-gray-600 dark:text-gray-300">{vm.ip}</span>
+                <span class="font-mono text-xs text-gray-600 dark:text-gray-300">{vm.ips[0]}</span>
               </li>
             {/each}
           </ul>

@@ -70,7 +70,11 @@
         </Row>
         <Row>
           <Item bold>IPs</Item>
-          <Item>{data.server.ip} - fe80::303b:38ff:fe03:b92d</Item>
+          <Item>
+            <ul>
+              <li>{data.server.ips[0]}</li>
+              <li>{data.server.ips[1]}</li>
+            </ul></Item>
         </Row>
       </Table>
     </div>

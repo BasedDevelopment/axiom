@@ -32,7 +32,7 @@
       <HamburgerIcon />
     </button>
     <div class="px-4">
-      <a href="/" class="text-lg font-semibold">🦊 EricNet</a>
+      <a href="/" class="text-lg font-semibold hover:underline">🦊 EricNet</a>
     </div>
   </div>
   <div class="flex gap-3">

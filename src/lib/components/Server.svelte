@@ -5,7 +5,13 @@
   import CloudIcon from './icons/CloudIcon.svelte';
   import DataIcon from './icons/DataIcon.svelte';
 
-  export let server: Record<string, string>;
+  export let server: {
+    id: string;
+    name: string;
+    ips: string[];
+    box: string;
+    status: 'OFF' | 'ON';
+  };
 </script>
 
 <section class="flex justify-between p-5 bg-gray-100 dark:bg-slate-800 rounded-md items-center">
@@ -17,11 +23,11 @@
     <!-- Maybe this should include OS/image? -->
     <div class="flex gap-2">
       <ChipIcon />
-      <span>{Math.round(Math.random()*100)}.{Math.round(Math.random()*99)}%</span>
+      <span>{Math.round(Math.random() * 100)}.{Math.round(Math.random() * 99)}%</span>
     </div>
     <div class="flex gap-2">
       <CloudIcon />
-      <span>{Math.round(Math.random()*15)+1}.{Math.round(Math.random()*99)}/16.00 GiB</span>
+      <span>{Math.round(Math.random() * 15) + 1}.{Math.round(Math.random() * 99)}/16.00 GiB</span>
     </div>
     <div class="flex gap-2">
       <DataIcon />

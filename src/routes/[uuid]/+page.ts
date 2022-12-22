@@ -1,8 +1,8 @@
-import servers from '../../data.json';
+import { data } from '$lib/data';
 import { error, type LoadEvent } from '@sveltejs/kit';
 
 export function load({ params }: LoadEvent) {
-  for (const box of servers) {
+  for (const box of data.boxes) {
     const server = box.vms.find((e) => (e.id === params.uuid));
 
     if (!server) {
