@@ -1,6 +1,7 @@
 <script lang="ts">
-  import { error } from '@sveltejs/kit';
   import cookie from 'cookie';
+
+  export let dialogOpen: boolean = true;
 
   interface LoginResponse {
     token: string;
@@ -48,6 +49,7 @@
     try {
       const token = await doAuthentication(email.value, password.value);
       setCookie(token);
+      dialogOpen = false;
     } catch (e) {
       console.log(e);
     }
@@ -93,14 +95,19 @@
       />
     </div>
   </div>
-  <div class="md:flex md:items-center">
-    <div class="md:w-1/3" />
-    <div class="md:w-2/3">
+  <div class="md:flex">
+    <div class="md:w-2/3 gap-2">
       <input
         class="shadow bg-indigo-600 hover:bg-indigo-500 hover:cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
         type="submit"
         value="Log In"
       />
+      <button
+        class="shadow bg-slate-800 hover:bg-slate-700 hover:cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+        on:click={() => (dialogOpen = false)}
+      >
+        Close
+      </button>
     </div>
   </div>
 </form>
