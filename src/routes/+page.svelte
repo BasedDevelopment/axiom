@@ -1,4 +1,5 @@
 <script>
+  import Login from '$lib/components/login/Login.svelte';
   import { firstUpperCase } from '$lib/firstUpperCase';
 
   /** @type {import('./$types').PageData} */
@@ -34,3 +35,5 @@
     </div>
   </div>
 </div>
+
+<Login />
