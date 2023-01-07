@@ -11,7 +11,9 @@
   import theme from '$lib/shared/stores/theme';
   import type { PageData } from './$types';
   import { onMount } from 'svelte';
+  import cookie from 'cookie';
 
+  // Enable dark/colored mode
   function isDark() {
     if (import.meta.env.SSR) {
       return false;
@@ -23,19 +25,28 @@
     );
   }
 
+  // Store mode in store
   theme.subscribe(() => {
     currentTheme = isDark() ? 'dark' : '';
   });
 
+  // Watch for changes of system color scheme
   onMount(() => {
     window.matchMedia('(prefers-color-scheme: dark)').onchange = () => {
       currentTheme = isDark() ? 'dark' : '';
     };
+
+    // Open login modal if token is undefined (expired, never logged in, etc.)
+    const token = cookie.parse(document.cookie).token;
+
+    if (!token) {
+      // Open login modal
+    }
   });
 
+  $: currentTheme = isDark() ? 'dark' : '';
   $: activeUrl = $page.url.pathname;
   $: activeHash = $page.url.hash;
-  $: currentTheme = isDark() ? 'dark' : '';
 
   export let data: PageData;
 </script>

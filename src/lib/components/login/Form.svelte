@@ -10,7 +10,7 @@
   // doAuthentication sends a HTTP request to the Eve instance to authenticate the user and returns an authentication token for later requests
   async function doAuthentication(email: string, password: string): Promise<string> {
     // @todo Make this URL dynamic
-    const resp = await fetch('http://localhost:3000/login', {
+    const resp = await fetch('http://10.10.9.4:3000/login', {
       method: 'POST',
       body: JSON.stringify({
         email,

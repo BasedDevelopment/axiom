@@ -24,7 +24,7 @@ interface Data {
 };
 
 export async function load({ cookies }: LayoutServerLoad): Promise<Data> {
-  const userRequest = await fetch('http://localhost:3000/me', {
+  const userRequest = await fetch('http://10.10.9.4:3000/me', {
     headers: {
       'Authorization': `Bearer ${cookies.get('token')}`,
     },
@@ -70,7 +70,7 @@ export async function load({ cookies }: LayoutServerLoad): Promise<Data> {
       ],
     }
   } else {
-    throw new Error(json)
+    throw new Error(user)
   }
 }
 
