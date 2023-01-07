@@ -1,8 +1,4 @@
 interface Data {
-  authenticatedUser: {
-    name: string;
-  };
-
   boxes: {
     name: string;
     vms: {
@@ -16,9 +12,6 @@ interface Data {
 }
 
 export const data: Data = {
-  authenticatedUser: {
-    name: 'luke'
-  },
   boxes: [
     {
       name: 'box0',

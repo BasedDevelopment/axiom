@@ -1,15 +1,15 @@
-<script>
+<script lang="ts">
   import Login from '$lib/components/login/Login.svelte';
   import { firstUpperCase } from '$lib/firstUpperCase';
+  import type { PageData } from './$types';
 
-  /** @type {import('./$types').PageData} */
-  export let data;
+  export let data: PageData;
 </script>
 
 <div class="flex justify-center">
   <div class="text-slate-800 dark:text-white w-3/4 py-4">
     <h1 class="text-4xl font-extrabold mb-3">
-      Hello, {firstUpperCase(data.authenticatedUser.name)}!
+      Hello, {firstUpperCase(data.user.name)}!
     </h1>
     <p class="mb-6">
       Hi, welcome to the EricNet Dashboard! Below you can see a list of all the servers you have
@@ -33,7 +33,9 @@
         </div>
       {/each}
     </div>
+    <div>
+      <!-- <ul id="me" on:click={}>Populate</ul> -->
+      <Login />
+    </div>
   </div>
 </div>
-
-<Login />
