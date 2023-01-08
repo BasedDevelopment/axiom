@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Login from '$lib/components/login/Login.svelte';
   import { firstUpperCase } from '$lib/firstUpperCase';
   import type { PageData } from './$types';
 
@@ -32,10 +31,6 @@
           </ul>
         </div>
       {/each}
-    </div>
-    <div>
-      <!-- <ul id="me" on:click={}>Populate</ul> -->
-      <Login />
     </div>
   </div>
 </div>
