@@ -5,9 +5,9 @@
   <footer class="text-gray-400 p-4 space-y-1 text-sm">
     <p>
       ⚡️ Powered by <a
-        href="https://github.com/lukewhrit/vixen"
+        href="https://github.com/lukewhrit/axiom"
         class="border-gray-400 hover:border-b"
-        rel="noreferrer">Vixen</a
+        rel="noreferrer">Axiom</a
       >
       and
       <a

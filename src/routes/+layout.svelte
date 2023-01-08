@@ -32,7 +32,7 @@
 </script>
 
 <svelte:head>
-  <title>Vixen</title>
+  <title>Axiom</title>
   <meta name="description" content="Web interface for Eve" />
 </svelte:head>
 
