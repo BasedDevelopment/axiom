@@ -9,7 +9,7 @@
   import Item from '$lib/components/table/Item.svelte';
   import Row from '$lib/components/table/Row.svelte';
   import Table from '$lib/components/table/Table.svelte';
-  import type { PageData } from './$types';
+  import type { PageData } from './[uuid]/$types';
 
   export let data: PageData;
 </script>
