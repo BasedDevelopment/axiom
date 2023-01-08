@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Form from '$lib/components/login/Form.svelte';
+  import Form from '$lib/components/Login.svelte';
 </script>
 
 <div class="w-full p-5 dark:bg-slate-900 dark:text-white">

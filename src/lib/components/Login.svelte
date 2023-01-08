@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   import cookie from 'cookie';
 
   export let dialogOpen: boolean = true;
@@ -10,7 +11,7 @@
   // doAuthentication sends a HTTP request to the Eve instance to authenticate the user and returns an authentication token for later requests
   async function doAuthentication(email: string, password: string): Promise<string> {
     // @todo Make this URL dynamic
-    const resp = await fetch('http://10.10.9.4:3000/login', {
+    const resp = await fetch('http://localhost:3000/login', {
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -49,7 +50,7 @@
     try {
       const token = await doAuthentication(email.value, password.value);
       setCookie(token);
-      dialogOpen = false;
+      await goto('/me');
     } catch (e) {
       console.error(e);
     }

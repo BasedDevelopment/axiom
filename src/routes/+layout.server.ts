@@ -1,16 +1,7 @@
 import type { LayoutServerLoadEvent } from './$types'
 
-export interface User {
-  created: string;
-  email: string;
-  id: string;
-  last_login: string;
-  name: string;
-  updated: string;
-}
 
 interface Data {
-  user: User;
   boxes: {
     name: string;
     vms: {
@@ -61,14 +52,6 @@ export async function load(event: LayoutServerLoadEvent): Promise<Data> {
   return {
     // @ts-expect-error user does in fact exist on locals type, as defined in hooks.server.ts
     authenticated: event.locals.user.authenticated,
-    user: {
-      created: '',
-      email: '',
-      id: '',
-      last_login: '',
-      name: 'Eric',
-      updated: '',
-    },
     boxes
   }
 }
