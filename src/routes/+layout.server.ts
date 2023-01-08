@@ -1,4 +1,4 @@
-import type { LayoutServerLoad } from './$types';
+import type { LayoutServerLoadEvent } from './$types'
 
 export interface User {
   created: string;
@@ -57,36 +57,19 @@ const boxes = [
   },
 ];
 
-export async function load(event: { locals: { authenticated: boolean }; cookies: { get: (arg0: string) => string } }): Promise<Data> {
-  if (event.locals.authenticated) {
-    const userRequest = await fetch('http://10.10.9.4:3000/me', {
-      headers: {
-        'Authorization': `Bearer ${event.cookies.get('token')}`,
-      },
-    });
-
-    const user = await userRequest.json();
-
-    if (userRequest.ok) {
-      return {
-        user,
-        boxes
-      }
-    } else {
-      throw new Error(user)
-    }
-  } else {
-    return {
-      user: {
-        created: '',
-        email: '',
-        id: '',
-        last_login: '',
-        name: 'Eric',
-        updated: '',
-      },
-      boxes
-    }
+export async function load(event: LayoutServerLoadEvent): Promise<Data> {
+  return {
+    // @ts-expect-error user does in fact exist on locals type, as defined in hooks.server.ts
+    authenticated: event.locals.user.authenticated,
+    user: {
+      created: '',
+      email: '',
+      id: '',
+      last_login: '',
+      name: 'Eric',
+      updated: '',
+    },
+    boxes
   }
 }
 

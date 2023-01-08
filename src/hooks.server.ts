@@ -21,8 +21,6 @@ export async function handle({ event, resolve }: HandleParameters) {
   if (session) {
     user.authenticated = true;
     user.token = session;
-
-    console.log(session);
   } else {
     user.authenticated = false;
     user.token = '';

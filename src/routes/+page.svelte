@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Form from '$lib/components/login/Form.svelte';
 </script>
 

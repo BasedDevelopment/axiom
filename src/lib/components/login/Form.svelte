@@ -51,7 +51,7 @@
       setCookie(token);
       dialogOpen = false;
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   }
 </script>
