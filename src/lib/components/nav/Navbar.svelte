@@ -6,6 +6,7 @@
   import MoonIcon from '../icons/MoonIcon.svelte';
   import SettingsIcon from '../icons/SettingsIcon.svelte';
   import SunIcon from '../icons/SunIcon.svelte';
+  import Settings from './Settings.svelte';
 
   function handleClick() {
     document.getElementById('sidebar-container')?.classList.toggle('hidden');
@@ -22,6 +23,8 @@
       disabled && 'cursor-not-allowed opacity-50'
     );
   }
+
+  let settingsOpen: boolean;
 </script>
 
 <header
@@ -36,7 +39,13 @@
     </div>
   </div>
   <div class="flex gap-3">
-    <SettingsIcon />
+    <div>
+      <button on:click={() => (settingsOpen = true)}>
+        <SettingsIcon />
+      </button>
+
+      <Settings isOpen={settingsOpen} />
+    </div>
 
     <Menu>
       <MenuButton>

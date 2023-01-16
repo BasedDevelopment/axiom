@@ -1,6 +1,6 @@
 <script lang="ts">
   import '../app.css';
-  import Navbar from '$lib/components/sidebar/Navbar.svelte';
+  import Navbar from '$lib/components/nav/Navbar.svelte';
   import theme from '$lib/shared/stores/theme';
   import { onMount } from 'svelte';
 
