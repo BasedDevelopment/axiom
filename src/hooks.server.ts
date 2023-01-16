@@ -18,7 +18,7 @@ export async function handle({ event, resolve }: HandleParameters) {
   // @todo Check if the token is in a valid format
   // Maybe also actually check if the user is validated with a request to Eve?
 
-  if (session) {
+  if (session !== undefined && session !== 'undefined') {
     user.authenticated = true;
     user.token = session;
   } else {
