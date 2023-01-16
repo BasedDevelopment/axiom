@@ -20,7 +20,7 @@ export async function load({ parent, locals }: LayoutServerLoadEvent): Promise<{
   // User should be authenticated at this point
   // Try and fetch their information from Eve
   try {
-    const user = await fetch('http://localhost:3000/me', {
+    const user = await fetch('http://10.10.9.4:3000/me', {
       headers: {
         Authorization: `Bearer ${locals.user.token}`
       }
