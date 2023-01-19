@@ -11,6 +11,7 @@ interface User {
 }
 
 export async function load({ parent, locals }: LayoutServerLoadEvent): Promise<{ user: User }> {
+  // @ts-expect-error authenticated is defined in hooks.server.ts
   const { authenticated } = await parent();
 
   if (!authenticated) {
@@ -22,6 +23,7 @@ export async function load({ parent, locals }: LayoutServerLoadEvent): Promise<{
   try {
     const user = await fetch('http://10.10.9.4:3000/me', {
       headers: {
+        // @ts-expect-error user is defined in hooks.server.ts
         Authorization: `Bearer ${locals.user.token}`
       }
     });

@@ -54,11 +54,11 @@
       <Table>
         <Row>
           <Item bold>Memory</Item>
-          <Item>4.00 GiB DDR3</Item>
+          <Item>{data.server.memory / 1073741824} GiB</Item>
         </Row>
         <Row>
           <Item bold>Processors</Item>
-          <Item>8 (2 sockets, 4 cores) - Intel® Xeon® E-2386G</Item>
+          <Item>{data.server.cpu}</Item>
         </Row>
         <Row>
           <Item bold>OS</Item>
@@ -66,15 +66,29 @@
         </Row>
         <Row>
           <Item bold>Storage</Item>
-          <Item>scsi0 (24/40 GiB), sda2 (54/160 GiB)</Item>
+          <Item>
+            {#if data.server.storages !== null}
+              {#each data.server.storages as device}
+                <span>{device.name} ({device.used}/{device.total} GB),</span>
+              {/each}
+            {:else}
+              None
+            {/if}
+          </Item>
         </Row>
         <Row>
           <Item bold>IPs</Item>
           <Item>
-            <ul>
-              <li>{data.server.ips[0]}</li>
-              <li>{data.server.ips[1]}</li>
-            </ul></Item>
+            {#if data.server.nics !== null}
+              <ul>
+                {#each data.server.nics as nic}
+                  <li>{nic.ip}</li>
+                {/each}
+              </ul>
+            {:else}
+              None
+            {/if}
+          </Item>
         </Row>
       </Table>
     </div>

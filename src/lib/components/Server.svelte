@@ -1,23 +1,31 @@
 <script lang="ts">
   import Status from '$lib/components/Status.svelte';
-  import { firstUpperCase } from '$lib/firstUpperCase';
   import ChipIcon from './icons/ChipIcon.svelte';
   import CloudIcon from './icons/CloudIcon.svelte';
   import DataIcon from './icons/DataIcon.svelte';
 
   export let server: {
     id: string;
-    name: string;
-    ips: string[];
-    box: string;
-    status: 'OFF' | 'ON';
+    hv: string;
+    hostname: string;
+    user: string;
+    cpu: number;
+    memory: number;
+    nics: null;
+    storages: null;
+    created: Date;
+    updated: Date;
+    remarks: string;
+    state: number;
+    state_str: string;
+    state_reason: string;
   };
 </script>
 
 <section class="flex justify-between p-5 bg-gray-100 dark:bg-slate-800 rounded-md items-center">
   <div class="space-y-1">
-    <p class="text-3xl font-bold tracking-wide">{firstUpperCase(server.name)}</p>
-    <Status is={server.status} />
+    <p class="text-3xl font-bold tracking-wide">{server.hostname}</p>
+    <Status code={server.state} reason={server.state_reason} />
   </div>
   <div>
     <!-- Maybe this should include OS/image? -->
