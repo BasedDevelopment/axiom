@@ -5,46 +5,15 @@
   import Section from '$lib/components/sidebar/Section.svelte';
   import Action from '$lib/components/sidebar/Action.svelte';
 
-  import { firstUpperCase } from '$lib/firstUpperCase';
   import { page } from '$app/stores';
+  import type { Container, User } from '$lib/data';
 
   $: activeUrl = $page.url.pathname;
   $: activeHash = $page.url.hash;
 
-  interface User {
-    created: string;
-    email: string;
-    id: string; // uuid
-    last_login: string;
-    name: string;
-    updated: string;
-  }
-
-  interface ContainerWrapper {
-    hypervisor: string;
-    vm: Container;
-  }
-
-  interface Container {
-    id: string;
-    hv: string;
-    hostname: string;
-    user: string;
-    cpu: number;
-    memory: number;
-    nics: null;
-    storages: null;
-    created: Date;
-    updated: Date;
-    remarks: string;
-    state: number;
-    state_str: string;
-    state_reason: string;
-  }
-
   export let data: {
     authenticated: boolean;
-    containers: ContainerWrapper[];
+    containers: Container[];
     user: User;
   };
 </script>

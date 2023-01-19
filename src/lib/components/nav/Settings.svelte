@@ -1,10 +1,5 @@
 <script lang="ts">
-  import {
-    Dialog,
-    DialogOverlay,
-    DialogTitle,
-    Transition
-  } from '@rgossiaux/svelte-headlessui';
+  import { Dialog, DialogOverlay, DialogTitle, Transition } from '@rgossiaux/svelte-headlessui';
 
   export let isOpen: boolean = false;
 </script>
@@ -18,24 +13,17 @@
   leaveFrom="transform scale-100 opacity-100"
   leaveTo="transform scale-95 opacity-0"
 >
-  <Dialog
-    open={isOpen}
-    on:close={() => (isOpen = false)}
-  >
+  <Dialog open={isOpen} on:close={() => (isOpen = false)}>
     <DialogOverlay class="opacity-25 fixed inset-0 z-40 bg-black" />
 
     <div
       class="bg-white z-50 rounded-md outline outline-indigo-600 drop-shadow-lg dark:bg-slate-800 dark:text-white"
       style={'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);'}
     >
-      <DialogTitle class="bg-indigo-600 text-white font-bold py-3 px-8">
-        Settings
-      </DialogTitle>
+      <DialogTitle class="bg-indigo-600 text-white font-bold py-3 px-8">Settings</DialogTitle>
 
       <div class="py-4 px-8 bg-none">
-        <button>
-          Log out
-        </button>
+        <button> Log out </button>
       </div>
     </div>
   </Dialog>

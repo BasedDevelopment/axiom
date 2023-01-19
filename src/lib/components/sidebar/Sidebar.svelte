@@ -1,4 +1,7 @@
-<aside class="flex w-72 flex-col h-full bg-gray-100 p-4 dark:bg-slate-800 dark:text-white" id="sidebar-container">
+<aside
+  class="flex w-72 flex-col h-full bg-gray-100 p-4 dark:bg-slate-800 dark:text-white"
+  id="sidebar-container"
+>
   <nav class="h-max flex-grow my-2">
     <slot />
   </nav>

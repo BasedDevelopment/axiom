@@ -1,36 +1,7 @@
+import type { User } from '$lib/data';
 import { redirect } from '@sveltejs/kit';
+import type { Container } from 'postcss';
 import type { LayoutServerLoadEvent } from '../$types';
-
-interface User {
-  created: string;
-  email: string;
-  id: string; // uuid
-  last_login: string;
-  name: string;
-  updated: string;
-}
-
-interface ContainerWrapper {
-  hypervisor: string;
-  vm: Container;
-}
-
-interface Container {
-  id: string;
-  hv: string;
-  hostname: string;
-  user: string;
-  cpu: number;
-  memory: number;
-  nics: null;
-  storages: null;
-  created: Date;
-  updated: Date;
-  remarks: string;
-  state: number;
-  state_str: string;
-  state_reason: string;
-}
 
 async function getUser(token: string) {
   const user = await fetch('http://10.10.9.4:3000/me', {
@@ -56,7 +27,7 @@ async function getContainers(token: string) {
   });
 
   if (vms.ok) {
-    const json: ContainerWrapper[] = await vms.json();
+    const json: Container[] = await vms.json();
     return json;
   } else {
     const json = await vms.json();
@@ -64,7 +35,10 @@ async function getContainers(token: string) {
   }
 }
 
-export async function load({ parent, locals }: LayoutServerLoadEvent): Promise<{ user: User; containers: ContainerWrapper[] }> {
+export async function load({
+  parent,
+  locals
+}: LayoutServerLoadEvent): Promise<{ user: User; containers: Container[] }> {
   // @ts-expect-error authenticated is defined in hooks.server.ts
   const { authenticated } = await parent();
   // @ts-expect-error defined
@@ -74,10 +48,8 @@ export async function load({ parent, locals }: LayoutServerLoadEvent): Promise<{
     throw redirect(307, '/');
   }
 
-  console.log((await getContainers(token))[0].vm);
-
   return {
     user: await getUser(token),
-    containers: await getContainers(token),
+    containers: await getContainers(token)
   };
 }

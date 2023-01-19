@@ -9,7 +9,7 @@ interface HandleParameters {
 export async function handle({ event, resolve }: HandleParameters) {
   const user = {
     authenticated: false,
-    token: '',
+    token: ''
   };
 
   // Check if user is authenticated by seeing if a token is stored in the cookies
@@ -29,8 +29,8 @@ export async function handle({ event, resolve }: HandleParameters) {
   const response = await resolve({
     ...event,
     locals: {
-      user,
-    },
+      user
+    }
   });
 
   return response;
