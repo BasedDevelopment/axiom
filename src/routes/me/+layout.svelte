@@ -7,33 +7,65 @@
 
   import { firstUpperCase } from '$lib/firstUpperCase';
   import { page } from '$app/stores';
-  import type { PageData } from '../$types';
 
   $: activeUrl = $page.url.pathname;
   $: activeHash = $page.url.hash;
 
-  export let data: PageData;
+  interface User {
+    created: string;
+    email: string;
+    id: string; // uuid
+    last_login: string;
+    name: string;
+    updated: string;
+  }
+
+  interface ContainerWrapper {
+    hypervisor: string;
+    vm: Container;
+  }
+
+  interface Container {
+    id: string;
+    hv: string;
+    hostname: string;
+    user: string;
+    cpu: number;
+    memory: number;
+    nics: null;
+    storages: null;
+    created: Date;
+    updated: Date;
+    remarks: string;
+    state: number;
+    state_str: string;
+    state_reason: string;
+  }
+
+  export let data: {
+    authenticated: boolean;
+    containers: ContainerWrapper[];
+    user: User;
+  };
 </script>
 
 <Sidebar>
   <Section name="Dashboard">
     <Action href="/me" active={activeUrl === '/me'}>Home</Action>
   </Section>
-  {#each data.boxes as box}
-    <Section name={box.name}>
-      {#each box.vms as server}
-        <Action href="/me/{server.id}" active={false}>{firstUpperCase(server.name)}</Action>
-        {#if activeUrl === `/me/${server.id}`}
-          <Action sub href="/me/{server.id}" active={activeHash !== '#statistics'}>
-            Console
-          </Action>
-          <Action sub href="/me/{server.id}#statistics" active={activeHash === '#statistics'}>
-            Statistics
-          </Action>
-        {/if}
-      {/each}
-    </Section>
-  {/each}
+  <Section name="Containers">
+    {#each data.containers as container}
+      <Action href="/me/{container.vm.id}" active={false}>{container.vm.hostname}</Action>
+      {#if activeUrl === `/me/${container.vm.id}`}
+        <Action sub href="/me/{container.vm.id}" active={activeHash !== '#statistics'}
+          >Console</Action
+        >
+        <Action sub href="/me/{container.vm.id}#statistics" active={activeHash === '#statistics'}>
+          Statistics
+        </Action>
+      {/if}
+    {/each}
+  </Section>
 </Sidebar>
 
 <div class="w-full p-5 dark:bg-slate-900 dark:text-white">
