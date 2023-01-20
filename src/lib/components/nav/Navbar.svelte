@@ -24,7 +24,7 @@
     );
   }
 
-  let settingsOpen: boolean;
+  let settingsOpen: boolean = false;
 </script>
 
 <header
@@ -40,7 +40,7 @@
   </div>
   <div class="flex gap-3">
     <div>
-      <button on:click={() => (settingsOpen = true)}>
+      <button on:click={() => {settingsOpen = true}}>
         <SettingsIcon />
       </button>
 

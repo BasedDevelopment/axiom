@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Button from '$lib/components/Button.svelte';
   import Console from '$lib/components/Console.svelte';
   import CircleXIcon from '$lib/components/icons/CircleXIcon.svelte';
   import CycleIcon from '$lib/components/icons/CycleIcon.svelte';
@@ -18,22 +17,22 @@
   <Server server={data.server} />
   <section class="flex flex-col md:flex-row gap-3">
     <div class="w-full md:w-1/3 space-y-3">
-      <Button>
+      <button class="button">
         <PowerIcon />
         Start
-      </Button>
-      <Button>
+      </button>
+      <button class="button">
         <CycleIcon />
         Reboot
-      </Button>
-      <Button>
+      </button>
+      <button class="button">
         <RewindIcon />
         Reset
-      </Button>
-      <Button>
+      </button>
+      <button class="button">
         <CircleXIcon />
         Hibernate
-      </Button>
+      </button>
     </div>
     <Console />
   </section>

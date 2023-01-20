@@ -15,6 +15,7 @@
     });
 
     await goto('/');
+    isOpen = false;
   }
 </script>
 
@@ -34,10 +35,14 @@
       class="bg-white z-50 rounded-md outline outline-indigo-600 drop-shadow-lg dark:bg-slate-800 dark:text-white"
       style={'position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);'}
     >
-      <DialogTitle class="bg-indigo-600 text-white font-bold py-3 px-8">Settings</DialogTitle>
+      <DialogTitle class="bg-indigo-600 text-white font-bold py-2 px-6">Settings</DialogTitle>
 
-      <div class="py-4 px-8 bg-none">
-        <button on:click={logout}>Log out</button>
+      <div class="py-2 px-6 bg-none">
+        <span class="text-sm font-semibold uppercase mb-6 text-gray-600 dark:text-gray-300">Account</span>
+        <div class="flex gap-2">
+          <button class="button" on:click={logout}>Logout</button>
+          <a class="button" href="mailto:staff@as206628.net?subject=Account closure">Delete Account</a>
+        </div>
       </div>
     </div>
   </Dialog>
