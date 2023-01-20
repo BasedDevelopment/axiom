@@ -10,7 +10,7 @@
     'Shutdown',
     'Off', // Shutoff
     'Crashed',
-    'Suspended'
+    'Suspended',
   }
 
   const colors = [
@@ -21,7 +21,7 @@
     'bg-rose-500', // Off, Shutdown
     'bg-rose-500', // Off, Shutoff
     'bg-gray-400', // Crashed
-    'bg-neutral-900' // Suspended
+    'bg-neutral-900', // Suspended
   ];
 </script>
 

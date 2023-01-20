@@ -1,15 +1,9 @@
-import type { RequestEvent, ResolveOptions } from '@sveltejs/kit';
-import type { MaybePromise } from '@sveltejs/kit/types/private';
+import type { Handle } from '@sveltejs/kit';
 
-interface HandleParameters {
-  event: RequestEvent;
-  resolve(event: RequestEvent, opts?: ResolveOptions): MaybePromise<Response>;
-}
-
-export async function handle({ event, resolve }: HandleParameters) {
+export const handle = (async ({ event, resolve }) => {
   const user = {
     authenticated: false,
-    token: ''
+    token: '',
   };
 
   // Check if user is authenticated by seeing if a token is stored in the cookies
@@ -29,9 +23,9 @@ export async function handle({ event, resolve }: HandleParameters) {
   const response = await resolve({
     ...event,
     locals: {
-      user
-    }
+      user,
+    },
   });
 
   return response;
-}
+}) satisfies Handle;

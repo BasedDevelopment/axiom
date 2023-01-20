@@ -10,11 +10,11 @@
       method: 'POST',
       body: JSON.stringify({
         email,
-        password
+        password,
       }),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        'Content-Type': 'application/json',
+      },
     });
 
     if (resp.ok) {
@@ -34,7 +34,7 @@
     document.cookie = cookie.serialize('token', token, {
       expires: date,
       secure: true,
-      sameSite: 'strict'
+      sameSite: 'strict',
     });
   }
 
@@ -43,7 +43,7 @@
     const form = e.target as HTMLFormElement;
     const { email, password } = {
       email: form[0] as HTMLInputElement,
-      password: form[1] as HTMLInputElement
+      password: form[1] as HTMLInputElement,
     };
 
     try {

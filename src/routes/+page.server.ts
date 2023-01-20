@@ -1,10 +1,10 @@
 import { redirect } from '@sveltejs/kit';
-import type { PageServerLoadEvent } from './$types';
+import type { PageServerLoad } from './$types';
 
-export async function load({ parent }: PageServerLoadEvent) {
+export const load = (async ({ parent }) => {
   const { authenticated } = await parent();
 
   if (authenticated) {
     throw redirect(307, '/me');
   }
-}
+}) satisfies PageServerLoad;

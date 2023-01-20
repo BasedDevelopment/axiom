@@ -20,7 +20,7 @@
     return classNames(
       'flex gap-2 w-full px-4 py-2 text-sm leading-5 text-left',
       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-      disabled && 'cursor-not-allowed opacity-50'
+      disabled && 'cursor-not-allowed opacity-50',
     );
   }
 

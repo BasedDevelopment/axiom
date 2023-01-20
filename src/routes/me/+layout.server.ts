@@ -1,13 +1,13 @@
 import type { User } from '$lib/data';
 import { redirect } from '@sveltejs/kit';
 import type { Container } from 'postcss';
-import type { LayoutServerLoadEvent } from '../$types';
+import type { LayoutServerLoad } from '../$types';
 
 async function getUser(token: string) {
   const user = await fetch('http://10.10.9.4:3000/me', {
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   if (user.ok) {
@@ -22,8 +22,8 @@ async function getUser(token: string) {
 async function getContainers(token: string) {
   const vms = await fetch('http://10.10.9.4:3000/virtual_machines/', {
     headers: {
-      Authorization: `Bearer ${token}`
-    }
+      Authorization: `Bearer ${token}`,
+    },
   });
 
   if (vms.ok) {
@@ -35,10 +35,7 @@ async function getContainers(token: string) {
   }
 }
 
-export async function load({
-  parent,
-  locals
-}: LayoutServerLoadEvent): Promise<{ user: User; containers: Container[] }> {
+export const load = (async ({ parent, locals }) => {
   // @ts-expect-error authenticated is defined in hooks.server.ts
   const { authenticated } = await parent();
   // @ts-expect-error defined
@@ -50,6 +47,6 @@ export async function load({
 
   return {
     user: await getUser(token),
-    containers: await getContainers(token)
+    containers: await getContainers(token),
   };
-}
+}) satisfies LayoutServerLoad;
