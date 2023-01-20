@@ -4,8 +4,7 @@ import type { PageServerLoad } from './$types';
 export const load = (async ({ params, locals }) => {
   const req = await fetch(`http://10.10.9.4:3000/virtual_machines/${params.uuid}`, {
     headers: {
-      // @ts-expect-error user is defined in hooks.server.ts
-      Authorization: `Bearer ${locals.user.token}`,
+      Authorization: `Bearer ${locals.token}`,
     },
   });
 

@@ -1,31 +1,21 @@
 import type { Handle } from '@sveltejs/kit';
 
 export const handle = (async ({ event, resolve }) => {
-  const user = {
-    authenticated: false,
-    token: '',
-  };
+  // Check if the user is authenticated by seeing if the token cookie exists (truthy). In some
+  // cases, it can also be a string with the content undefined, so we also check for that.
+  const token = event.cookies.get('token');
 
-  // Check if user is authenticated by seeing if a token is stored in the cookies
-  const session = event.cookies.get('token');
+  // @TODO Check token against Eve
 
-  // @todo Check if the token is in a valid format
-  // Maybe also actually check if the user is validated with a request to Eve?
-
-  if (session !== undefined && session !== 'undefined') {
-    user.authenticated = true;
-    user.token = session;
+  if (!token && token !== 'undefined') {
+    // Session is undefined
+    event.locals.token = '';
+    event.locals.authenticated = false;
   } else {
-    user.authenticated = false;
-    user.token = '';
+    // User is authenticated
+    event.locals.token = token;
+    event.locals.authenticated = true;
   }
 
-  const response = await resolve({
-    ...event,
-    locals: {
-      user,
-    },
-  });
-
-  return response;
+  return await resolve(event);
 }) satisfies Handle;
