@@ -1,8 +1,9 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
+import * as config from '$lib/config';
 
 export const load = (async ({ params, locals }) => {
-  const req = await fetch(`http://10.10.9.4:3000/virtual_machines/${params.uuid}`, {
+  const req = await fetch(`${config.INSTANCE}/virtual_machines/${params.uuid}`, {
     headers: {
       Authorization: `Bearer ${locals.token}`,
     },

@@ -1,12 +1,13 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import * as config from '$lib/config';
   import type { Error, LoginResponse } from '$lib/data';
   import cookie from 'cookie';
 
   // doAuthentication sends a HTTP request to the Eve instance to authenticate the user and returns an authentication token for later requests
   async function doAuthentication(email: string, password: string): Promise<string> {
     // @todo Make this URL dynamic
-    const resp = await fetch('http://localhost:3000/login', {
+    const resp = await fetch(`${config.INSTANCE}/login`, {
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -33,7 +34,7 @@
 
     document.cookie = cookie.serialize('token', token, {
       expires: date,
-      secure: true,
+      secure: config.SECURE,
       sameSite: 'strict',
     });
   }

@@ -2,6 +2,7 @@
   import cookie from 'cookie';
   import { Dialog, DialogOverlay, DialogTitle, Transition } from '@rgossiaux/svelte-headlessui';
   import { goto } from '$app/navigation';
+  import * as config from '$lib/config';
 
   export let isOpen: boolean = false;
 
@@ -11,6 +12,7 @@
 
     document.cookie = cookie.serialize('token', '', {
       expires: date,
+      secure: config.SECURE,
       sameSite: 'strict',
     });
 

@@ -2,9 +2,11 @@ import type { User } from '$lib/data';
 import { redirect } from '@sveltejs/kit';
 import type { Container } from 'postcss';
 import type { LayoutServerLoad } from './$types';
+import * as config from '$lib/config';
+
 
 async function getUser(token: string) {
-  const user = await fetch('http://10.10.9.4:3000/me', {
+  const user = await fetch(`${config.INSTANCE}/me`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -20,7 +22,7 @@ async function getUser(token: string) {
 }
 
 async function getContainers(token: string) {
-  const vms = await fetch('http://10.10.9.4:3000/virtual_machines/', {
+  const vms = await fetch(`${config.INSTANCE}/virtual_machines/`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
