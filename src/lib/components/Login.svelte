@@ -1,17 +1,12 @@
 <script lang="ts">
   import { goto } from '$app/navigation';
+  import type { Error, LoginResponse } from '$lib/data';
   import cookie from 'cookie';
-
-  export let dialogOpen: boolean = true;
-
-  interface LoginResponse {
-    token: string;
-  }
 
   // doAuthentication sends a HTTP request to the Eve instance to authenticate the user and returns an authentication token for later requests
   async function doAuthentication(email: string, password: string): Promise<string> {
     // @todo Make this URL dynamic
-    const resp = await fetch('http://10.10.9.4:3000/login', {
+    const resp = await fetch('http://localhost:3000/login', {
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -22,9 +17,13 @@
       }
     });
 
-    const json: LoginResponse = await resp.json();
-
-    return json.token;
+    if (resp.ok) {
+      const json: LoginResponse = await resp.json();
+      return json.token;
+    } else {
+      const json: Error = await resp.json();
+      throw new Error(`${json.request} - ${json.message}`);
+    }
   }
 
   // setCookie uses a token string from doAuthentication and adds it to the document's cookies
@@ -85,6 +84,7 @@
         class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-gray-100 focus:border-purple-500"
         id="password"
         type="password"
+        autocomplete="current-password"
         placeholder="******************"
         required
       />
@@ -97,12 +97,6 @@
         type="submit"
         value="Log In"
       />
-      <button
-        class="shadow bg-slate-800 hover:bg-slate-700 hover:cursor-pointer focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-        on:click={() => (dialogOpen = false)}
-      >
-        Close
-      </button>
     </div>
   </div>
 </form>

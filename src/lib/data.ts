@@ -1,3 +1,13 @@
+export interface Error {
+  error?: string;
+  message: string;
+  request: string;
+}
+
+export interface LoginResponse {
+  token: string;
+}
+
 export interface User {
   created: string;
   email: string;
