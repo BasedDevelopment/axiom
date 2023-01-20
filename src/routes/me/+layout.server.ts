@@ -38,7 +38,7 @@ async function getContainers(token: string) {
 export const load = (async ({ parent, locals }) => {
   // @ts-expect-error authenticated is defined in `routes/+layout.server.ts`
   const { authenticated } = await parent();
-  const token = (locals as { token: string }).token;
+  const token = locals.token;
 
   if (!authenticated) {
     throw redirect(307, '/');

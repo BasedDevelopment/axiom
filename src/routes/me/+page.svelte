@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Status from '$lib/components/Status.svelte';
   import type { Container, User } from '$lib/data';
   import { firstUpperCase } from '$lib/firstUpperCase';
 
@@ -27,10 +28,19 @@
         <ul class="grid grid-cols-1 md:grid-cols-3 grid-rows-auto gap-3">
           {#each data.containers as container}
             <li
-              class="border-slate-800 dark:border-indigo-500 px-3 py-2 flex flex-col rounded-md border-2"
+              class="group border-indigo-500 group-hover:border-indigo-400 flex flex-col rounded-md border-2"
             >
-              <a class="link text-lg font-bold" href="/me/{container.vm.id}"
-                >{container.vm.hostname}</a
+              <a
+                class="text-indigo-500 group-hover:text-indigo-400 px-3 py-2 group-hover:underline text-lg font-bold"
+                href="/me/{container.vm.id}"
+                >{container.vm.hostname}
+                <p class="mt-1">
+                  <Status
+                    code={container.vm.state}
+                    reason={container.vm.state_reason}
+                    color="bg-indigo-500 group-hover:bg-indigo-400"
+                  />
+                </p></a
               >
             </li>
           {/each}

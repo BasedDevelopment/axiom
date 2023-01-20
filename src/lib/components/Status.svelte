@@ -1,6 +1,7 @@
 <script lang="ts">
   export let code: number;
   export let reason: string = '';
+  export let color: string = '';
 
   enum Status {
     'Unknown' = 0,
@@ -27,7 +28,7 @@
 
 <div class="inline-block text-center text-sm">
   <span class="sr-only">VM Status:</span>
-  <p title={reason} class="font-bold text-white {colors[code]} p-1 rounded-md">
+  <p title={reason} class="font-bold text-white {color || colors[code]} p-1 rounded-md">
     {Status[code].toUpperCase()}
   </p>
 </div>
