@@ -1,7 +1,7 @@
 import type { User } from '$lib/data';
 import { redirect } from '@sveltejs/kit';
 import type { Container } from 'postcss';
-import type { LayoutServerLoad } from '../$types';
+import type { LayoutServerLoad } from './$types';
 
 async function getUser(token: string) {
   const user = await fetch('http://10.10.9.4:3000/me', {
@@ -36,7 +36,6 @@ async function getContainers(token: string) {
 }
 
 export const load = (async ({ parent, locals }) => {
-  // @ts-expect-error authenticated is defined in `routes/+layout.server.ts`
   const { authenticated } = await parent();
   const token = locals.token;
 
