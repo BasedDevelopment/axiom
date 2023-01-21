@@ -15,3 +15,8 @@ declare module '*.json' {
   const value: Record<unknown, unknown> | unknown[];
   export default value;
 }
+
+declare module '$env/static/public' {
+  const AXIOM_INSTANCE: string;
+  const AXIOM_SECURE: string;
+}

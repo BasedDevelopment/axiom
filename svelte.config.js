@@ -11,6 +11,9 @@ const config = {
 
   kit: {
     adapter: adapter(),
+    env: {
+      publicPrefix: 'AXIOM_'
+    }
   },
 };
 
