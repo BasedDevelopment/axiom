@@ -1,10 +1,11 @@
 <script lang="ts">
-  import Console from '$lib/components/Console.svelte';
+  import Console from '$lib/components/server/Console.svelte';
   import CircleXIcon from '$lib/components/icons/CircleXIcon.svelte';
   import CycleIcon from '$lib/components/icons/CycleIcon.svelte';
   import PowerIcon from '$lib/components/icons/PowerIcon.svelte';
   import RewindIcon from '$lib/components/icons/RewindIcon.svelte';
-  import Server from '$lib/components/Server.svelte';
+  import Header from '$lib/components/server/Header.svelte';
+  import Button from '$lib/components/server/Button.svelte';
   import Item from '$lib/components/table/Item.svelte';
   import Row from '$lib/components/table/Row.svelte';
   import Table from '$lib/components/table/Table.svelte';
@@ -14,25 +15,25 @@
 </script>
 
 <div class="space-y-5" id="console">
-  <Server server={data.server} />
+  <Header server={data.server} />
   <section class="flex flex-col md:flex-row gap-3">
     <div class="w-full md:w-1/3 space-y-3">
-      <button class="button">
+      <Button>
         <PowerIcon />
         Start
-      </button>
-      <button class="button">
+      </Button>
+      <Button>
         <CycleIcon />
         Reboot
-      </button>
-      <button class="button">
+      </Button>
+      <Button>
         <RewindIcon />
         Reset
-      </button>
-      <button class="button">
+      </Button>
+      <Button>
         <CircleXIcon />
         Hibernate
-      </button>
+      </Button>
     </div>
     <Console />
   </section>

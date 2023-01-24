@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Status from '$lib/components/Status.svelte';
-  import ChipIcon from './icons/ChipIcon.svelte';
-  import CloudIcon from './icons/CloudIcon.svelte';
-  import DataIcon from './icons/DataIcon.svelte';
+  import Status from '$lib/components/server/Status.svelte';
+  import ChipIcon from '../icons/ChipIcon.svelte';
+  import CloudIcon from '../icons/CloudIcon.svelte';
+  import DataIcon from '../icons/DataIcon.svelte';
 
   export let server: {
     id: string;

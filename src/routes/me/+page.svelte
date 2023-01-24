@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Status from '$lib/components/Status.svelte';
+  import Status from '$lib/components/server/Status.svelte';
   import type { Container, User } from '$lib/data';
   import { firstUpperCase } from '$lib/firstUpperCase';
 
